@@ -1,12 +1,26 @@
 from fastapi import FastAPI
 
-app = FastAPI()
+myapp = FastAPI()
 
-@app.get("/")
+@myapp.get("/blogs")
+def index(limit):
+    return {"data" : f'{limit} blogs from db'}
+
+
+@myapp.get("/blogs/unpublished")
 def index():
-    return {"data" : {"name" : "messi"}}
+    return {"unplublished blogs"}
 
 
-@app.get("/about")
-def about():
-    return "this is about section"
+
+
+
+@myapp.get("/blogs/{id}")
+def about(id : int):
+    #fetch blog with id = id
+    return {"data" : id}
+
+@myapp.get("/blogs/{id}/comments")
+def comments(id:int):
+    return {"data" : {'1','2'}}
+
