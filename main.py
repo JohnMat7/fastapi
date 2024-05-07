@@ -26,6 +26,12 @@ def about(id : int):
     return {"data" : id}
 
 @myapp.get("/blogs/{id}/comments")
-def comments(id:int):
+def comments(id:int , limit=10):
     return {"data" : {'1','2'}}
+
+
+sdad
+
+
+
 
